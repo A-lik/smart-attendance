@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Smart Attendance</string>
+    <string name="main_screen_title">Today\'s classes</string>
+    <string name="auth_email_helper">Enter a valid email address</string>
+    <string name="label_email">E-mail</string>
+    <string name="label_password">Password</string>
+    <string name="welcome">Welcome</string>
+    <string name="login_form_title">Login to your account</string>
+    <string name="login_form_subtitle">Make sure that you already have an account</string>
+    <string name="login">Login</string>
+
+
+</resources>
