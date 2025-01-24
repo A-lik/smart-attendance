@@ -15,12 +15,6 @@ import edu.iitu.smartattendance.presentation.app_flow.main.home.view.component.U
 import edu.iitu.smartattendance.presentation.common.ui.theme.SaColor
 
 @Composable
-fun HomeWrapper(viewModel: HomeViewModel) {
-    val state by viewModel.state.collectAsState()
-    HomeScreen(state, viewModel::dispatchEvent)
-}
-
-@Composable
 fun HomeScreen(
     state: HomeState,
     dispatch: (HomeEvent) -> Unit

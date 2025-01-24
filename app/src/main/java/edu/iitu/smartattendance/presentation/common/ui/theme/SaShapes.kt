@@ -12,6 +12,6 @@ data class SaShapes(
     val radius12: RoundedCornerShape = RoundedCornerShape(size = 12.dp),
     val radius16: RoundedCornerShape = RoundedCornerShape(size = 16.dp),
     val radius20: RoundedCornerShape = RoundedCornerShape(size = 20.dp),
-    val bottomRadius20: RoundedCornerShape = RoundedCornerShape(bottomStart = 24.dp, bottomEnd = 24.dp),
+    val bottomRadius20: RoundedCornerShape = RoundedCornerShape(bottomStart = 30.dp, bottomEnd = 30.dp),
     val percent50: RoundedCornerShape = RoundedCornerShape(percent = 50)
 )

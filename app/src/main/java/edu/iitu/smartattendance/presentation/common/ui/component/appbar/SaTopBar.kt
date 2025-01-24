@@ -19,11 +19,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import edu.iitu.smartattendance.R
-import edu.iitu.smartattendance.presentation.app_flow.AppState
 import edu.iitu.smartattendance.presentation.app_flow.main.home.model.HomeState
-import edu.iitu.smartattendance.presentation.common.app_navigation.MainConfig
 import edu.iitu.smartattendance.presentation.common.mvi.StateMachine
-import edu.iitu.smartattendance.presentation.common.ui.component.clickWithRipple
 import edu.iitu.smartattendance.presentation.common.ui.theme.SaColor
 import edu.iitu.smartattendance.presentation.common.ui.theme.SaPadding
 import edu.iitu.smartattendance.presentation.common.ui.theme.SaTheme

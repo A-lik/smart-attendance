@@ -20,7 +20,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import edu.iitu.smartattendance.presentation.common.app_navigation.AppConfig
 import edu.iitu.smartattendance.presentation.common.ui.component.appbar.enums.SaBottomNavBarIcon
 import edu.iitu.smartattendance.presentation.common.ui.theme.SaColor
 import edu.iitu.smartattendance.presentation.common.ui.theme.SaPadding
@@ -69,11 +68,11 @@ fun SaBottomBar(
     }
 }
 
-@Composable
-fun RenderSaBottomBar(state: AppConfig) = when (state) {
-    is AppConfig.AuthConfig -> Unit
-    is AppConfig.MainConfig -> SaBottomBar()
-}
+//@Composable
+//fun RenderSaBottomBar(state: AppConfig) = when (state) {
+//    is AppConfig.AuthConfig -> Unit
+//    is AppConfig.MainConfig -> SaBottomBar()
+//}
 
 @Composable
 @Preview(showBackground = true)

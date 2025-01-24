@@ -2,8 +2,11 @@ package edu.iitu.smartattendance.presentation.app_flow.main.home.view.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -24,6 +27,9 @@ import edu.iitu.smartattendance.presentation.common.ui.theme.SaTheme
 fun UpcomingClassesScreen(
     dispatch: (HomeEvent) -> Unit
 ) {
+    val systemBarPadding = WindowInsets.systemBars.asPaddingValues().calculateTopPadding()
+
+
     Surface(
         modifier = Modifier
             .fillMaxWidth(),
@@ -33,7 +39,11 @@ fun UpcomingClassesScreen(
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(bottom = 40.dp, top = 8.dp)
+            modifier = Modifier
+                .padding(
+                    bottom = 40.dp,
+                    top = 8.dp + systemBarPadding
+                )
         ) {
             Text(
                 text = stringResource(id = R.string.main_screen_title),
@@ -42,13 +52,16 @@ fun UpcomingClassesScreen(
         }
     }
 
-
     LazyColumn(
         modifier = Modifier
-            .fillMaxWidth(),
-        contentPadding = PaddingValues(vertical = SaPadding.medium().calculateBottomPadding(), horizontal = SaPadding.small().calculateTopPadding())
+            .fillMaxWidth()
+            .padding(bottom = systemBarPadding),
+        contentPadding = PaddingValues(
+            vertical = SaPadding.medium().calculateBottomPadding(),
+            horizontal = SaPadding.small().calculateTopPadding()
+        )
     ) {
-        items(6) {
+        items(12) {
             CardComponent(
                 title = "System Level Programming",
                 mainIcon = R.drawable.bg_class_detail,
@@ -57,7 +70,7 @@ fun UpcomingClassesScreen(
                 time = "12:34",
                 dispatch
             )
-            HeightSpacer(value = SaPadding.large().calculateTopPadding())
+            HeightSpacer(value = SaPadding.small().calculateTopPadding())
         }
     }
 }
