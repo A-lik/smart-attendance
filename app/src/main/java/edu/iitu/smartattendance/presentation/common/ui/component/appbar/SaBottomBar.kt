@@ -44,7 +44,6 @@ fun SaBottomBar(
             .wrapContentHeight(),
         color = SaColor.Primary400,
         contentColor = contentColor,
-        tonalElevation = 0.dp,
     ) {
         Row(
             modifier = Modifier

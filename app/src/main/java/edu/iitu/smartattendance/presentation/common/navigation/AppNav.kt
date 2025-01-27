@@ -1,34 +1,31 @@
 package edu.iitu.smartattendance.presentation.common.navigation
 
-import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
-import androidx.compose.foundation.layout.consumeWindowInsets
-import androidx.compose.foundation.layout.systemBars
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import edu.iitu.smartattendance.presentation.app_flow.NavEventBus
 
 @Composable
-fun AppNav() {
+fun AppNav(
+    modifier: Modifier = Modifier,
+) {
     val navController = rememberNavController()
-//    val currentBackStackEntry = navController.currentBackStackEntryAsState().value
 
-
-    Scaffold(
-        containerColor = Color.Transparent,
-//            bottomBar = { RenderSaBottomBar(state) }
-    ) { innerPadding ->
-        AppNavHost(
-            modifier = Modifier.consumeWindowInsets(innerPadding),
-            navController = navController
-        )
+    LaunchedEffect(Unit) {
+        NavEventBus.navEvents.collect { handleNavEvent(navController, it) }
     }
+
+    SaNavHost(
+//        modifier = modifier.consumeWindowInsets(),
+        navController = navController,
+        startDestination = AppDestination.Auth
+    )
 }
 
-/*
-* Did navigation
-* should continue on making Home screen cause it is shit rn
-*
-* */
+private fun handleNavEvent(navController: NavHostController, destination: AppDestination) =
+    navController.navigate(destination) {
+        if (destination is AppDestination.Home)
+            popUpTo(AppDestination.Auth) { inclusive = true }
+    }

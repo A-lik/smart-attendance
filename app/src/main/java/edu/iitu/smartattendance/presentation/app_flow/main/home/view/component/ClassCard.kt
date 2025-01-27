@@ -32,7 +32,7 @@ import edu.iitu.smartattendance.presentation.common.ui.theme.SaPadding
 import edu.iitu.smartattendance.presentation.common.ui.theme.SaTheme
 
 @Composable
-fun CardComponent(
+fun ClassCard(
     title: String,
     mainIcon: Int,
     locationIcon: Int,
@@ -132,7 +132,7 @@ fun Long.decTime() = (this - System.currentTimeMillis()) / 1000
 @Preview
 @Composable
 private fun CardPreview() =
-    CardComponent(
+    ClassCard(
         title = "System Level Programing",
         mainIcon = R.drawable.ic_launcher_foreground,
         locationIcon = R.drawable.ic_location,

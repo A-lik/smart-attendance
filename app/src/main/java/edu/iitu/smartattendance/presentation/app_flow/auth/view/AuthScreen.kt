@@ -15,12 +15,7 @@ import edu.iitu.smartattendance.presentation.app_flow.auth.model.AuthEvent
 import edu.iitu.smartattendance.presentation.app_flow.auth.model.AuthState
 import edu.iitu.smartattendance.presentation.app_flow.auth.view.components.EmailAuthContent
 import edu.iitu.smartattendance.presentation.app_flow.auth.view.components.authScreenGradient
-
-@Composable
-fun AuthWrapper(authVm: AuthViewModel) {
-    val state = authVm.state.collectAsStateWithLifecycle()
-    AuthScreen(state.value, authVm::dispatchEvent)
-}
+import edu.iitu.smartattendance.presentation.common.ui.component.basic.loader.SaLoadingIndicator
 
 @Composable
 fun AuthScreen(
@@ -40,9 +35,8 @@ fun AuthScreen(
         when (state) {
             is AuthState.EmailAuth -> EmailAuthContent(state, dispatchMemoized)
             AuthState.Error -> TODO()
-            AuthState.Loading -> TODO()
+            is AuthState.Loading -> SaLoadingIndicator()
             AuthState.Success -> TODO()
         }
     }
-
 }

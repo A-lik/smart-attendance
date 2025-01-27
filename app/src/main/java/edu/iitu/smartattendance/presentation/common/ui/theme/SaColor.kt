@@ -40,4 +40,8 @@ object SaColor {
 
     val Gray300 = Color(0xFFD4D4D8)
 
+    val Gray100 = Color(0xFFF4F4F5)
+    val Gray200 = Color(0xFFE4E4E7)
+    val Gray700 = Color(0xFF3F3F46)
+
 }

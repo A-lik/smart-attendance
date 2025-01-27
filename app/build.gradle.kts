@@ -60,6 +60,7 @@ dependencies {
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.hilt.android)
+    implementation(libs.bundles.network)
 
 
     implementation(libs.androidx.core.ktx)
@@ -67,6 +68,8 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.navigation.compose)
     implementation(libs.org.jetbrains.kotlinx.serialization.json)
+    implementation(libs.androidx.biometric)
+    implementation(libs.bundles.camera)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

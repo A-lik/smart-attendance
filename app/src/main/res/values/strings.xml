@@ -8,6 +8,12 @@
     <string name="login_form_title">Login to your account</string>
     <string name="login_form_subtitle">Make sure that you already have an account</string>
     <string name="login">Login</string>
+    <string name="notes">Additional Notes</string>
+    <string name="check_in">Check In</string>
+    <string name="biometric_subtitle">Place your finger to verify</string>
+    <string name="biometric_cancel">Cancel</string>
+    <string name="scan_qr">Point the camera at the QR code</string>
+
 
 
 </resources>

@@ -26,6 +26,7 @@ fun SaBaseButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     enabled: Boolean = true,
+    icon: @Composable (() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     colors: ButtonColors = SaButtonDefaults.SaButtonContentType.Basic.colors(),
     contentPadding: PaddingValues = SaButtonDefaults.ContentPadding.medium(),
@@ -60,6 +61,8 @@ fun SaBaseButton(
                 contentAlignment = Alignment.Center,
                 content = content
             )
+            if (icon != null)
+                icon()
         }
     }
 }

@@ -11,9 +11,14 @@ fun AuthState.EmailAuth.changePassword(password: CharArray) = copy(password = pa
 fun AuthState.EmailAuth.isValid(): Boolean =
     email != null && password != null && password.toString().isNotBlank()
 
-//fun AuthState.EmailAuth.handleLogin(): Transition<AuthState, AuthCommand> =
-//    when {
-//        this.password == null -> this.noTransition()
-//        this.email != null -> AuthState.Loading.toTransition()
-//        else -> this.noTransition()
-//    }
+fun AuthState.EmailAuth.handleLogin(): Transition<AuthState, AuthCommand> =
+    when {
+        this.password == null -> this.noTransition()
+        this.email != null -> AuthState.Loading(this).toTransition(
+            AuthCommand.InitiateEmailLogin(
+                email = this.email,
+                password = this.password
+            )
+        )
+        else -> this.noTransition()
+    }

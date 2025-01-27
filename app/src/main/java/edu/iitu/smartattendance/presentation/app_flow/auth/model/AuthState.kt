@@ -12,5 +12,5 @@ sealed interface AuthState : StateMachine.State {
 
     data object Success : AuthState
     data object Error : AuthState
-    data object Loading : AuthState
+    data class Loading(val fallback: AuthState) : AuthState
 }

@@ -10,7 +10,7 @@ object AuthReducer : StateMachine.Reducer<AuthState, AuthEvent, AuthCommand> {
         return when (state) {
             is AuthState.EmailAuth -> reduceEmailAuth(state, event)
             AuthState.Error -> TODO()
-            AuthState.Loading -> TODO()
+            is AuthState.Loading -> TODO()
             AuthState.Success -> TODO()
         }
     }
@@ -21,7 +21,7 @@ object AuthReducer : StateMachine.Reducer<AuthState, AuthEvent, AuthCommand> {
     ): Transition<AuthState, AuthCommand> = when (event) {
         is AuthEvent.PasswordChanged -> state.changePassword(event.password).toTransition()
         is AuthEvent.EmailedChanged -> state.changeEmail(event.email).toTransition()
-        AuthEvent.LoginClicked -> state.toTransition(AuthCommand.NavigateToMain)
+        AuthEvent.LoginClicked -> state.handleLogin()
     }
 
 }

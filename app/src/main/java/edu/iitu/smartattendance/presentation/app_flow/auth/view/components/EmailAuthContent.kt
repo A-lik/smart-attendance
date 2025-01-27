@@ -46,7 +46,7 @@ fun EmailAuthContent(
             style = SaTheme.typography.titleBold32
         )
 
-        Spacer(modifier = Modifier.height(70.dp))
+        Spacer(modifier = Modifier.height(50.dp))
 
         LoginCard(state, dispatch)
     }

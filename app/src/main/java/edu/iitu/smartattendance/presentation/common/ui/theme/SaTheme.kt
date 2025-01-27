@@ -26,6 +26,7 @@ fun SaTheme(
 
     val view = LocalView.current
     val context = LocalContext.current
+    val isDark = isSystemInDarkTheme()
 
     SideEffect {
         val window = (context as? Activity)?.window ?: return@SideEffect

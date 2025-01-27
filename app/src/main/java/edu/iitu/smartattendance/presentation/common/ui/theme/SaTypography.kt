@@ -94,7 +94,7 @@ data class SaTypography(
     ),
     val titleMedium: TextStyle = TextStyle(
         fontFamily = mediumFont,
-        fontSize = 30.sp
+        fontSize = 18.sp
     ),
     val titleRegular20: TextStyle = TextStyle(
         fontFamily = regularFont,
@@ -118,6 +118,15 @@ data class SaTypography(
         fontFamily = regularFont,
         fontSize = 16.sp,
         lineHeight = 24.sp,
+        lineHeightStyle = LineHeightStyle(
+            alignment = LineHeightStyle.Alignment.Center,
+            trim = LineHeightStyle.Trim.None
+        )
+    ),
+    val caption2Regular: TextStyle = TextStyle(
+        fontFamily = regularFont,
+        fontSize = 12.sp,
+        lineHeight = 18.sp,
         lineHeightStyle = LineHeightStyle(
             alignment = LineHeightStyle.Alignment.Center,
             trim = LineHeightStyle.Trim.None

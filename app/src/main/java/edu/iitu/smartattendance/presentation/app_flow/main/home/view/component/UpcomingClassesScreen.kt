@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import edu.iitu.smartattendance.R
 import edu.iitu.smartattendance.presentation.app_flow.main.home.model.HomeEvent
@@ -29,11 +30,19 @@ fun UpcomingClassesScreen(
 ) {
     val systemBarPadding = WindowInsets.systemBars.asPaddingValues().calculateTopPadding()
 
+    HeaderSection(systemBarPadding)
+    ClassesSection(dispatch, systemBarPadding)
 
+}
+
+@Composable
+private fun HeaderSection(
+    systemBarPadding: Dp
+) {
     Surface(
         modifier = Modifier
             .fillMaxWidth(),
-        shape = SaTheme.shapes.bottomRadius20,
+        shape = SaTheme.shapes.radius12,
         color = SaColor.Primary400,
         contentColor = SaColor.White
     ) {
@@ -51,18 +60,26 @@ fun UpcomingClassesScreen(
             )
         }
     }
+}
 
+@Composable
+private fun ClassesSection(
+    dispatch: (HomeEvent) -> Unit,
+    systemBarPadding: Dp
+) {
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = systemBarPadding),
+            .padding(
+                bottom = systemBarPadding + SaPadding.large().calculateBottomPadding()
+            ),
         contentPadding = PaddingValues(
             vertical = SaPadding.medium().calculateBottomPadding(),
             horizontal = SaPadding.small().calculateTopPadding()
         )
     ) {
         items(12) {
-            CardComponent(
+            ClassCard(
                 title = "System Level Programming",
                 mainIcon = R.drawable.bg_class_detail,
                 locationIcon = R.drawable.ic_location,

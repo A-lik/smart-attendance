@@ -4,8 +4,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -14,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import edu.iitu.smartattendance.presentation.app_flow.auth.view.components.authScreenGradient
 import edu.iitu.smartattendance.presentation.common.ui.theme.SaColor
+import edu.iitu.smartattendance.presentation.common.ui.theme.SaPadding
 
 @Composable
 fun Modifier.clickWithRipple(
@@ -47,7 +50,7 @@ fun Modifier.clickWithRipple(
 //}
 
 @Composable
-fun HeightSpacer(value: Dp) = Spacer(modifier = Modifier.height(value))
+fun HeightSpacer(value: Dp = SaPadding.medium().calculateTopPadding()) = Spacer(modifier = Modifier.height(value))
 
 @Composable
 fun WidthSpacer(value: Dp) = Spacer(modifier = Modifier.width(value))
