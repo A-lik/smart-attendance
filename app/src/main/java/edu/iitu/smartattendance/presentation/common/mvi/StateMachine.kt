@@ -26,8 +26,8 @@ typealias Transition<S, C> = Pair<S, Set<C>>
 fun <S : StateMachine.State, C : StateMachine.Command> S.noTransition() =
     Transition(this, emptySet<C>())
 
-//internal fun <C : StateMachine.Command, S : StateMachine.State> C.toTransition(state: S): Transition<S, C> =
-//    state to setOf(this)
+internal fun <C : StateMachine.Command, S : StateMachine.State> C.toTransition(state: S): Transition<S, C> =
+    state to setOf(this)
 //
 //internal fun <C : StateMachine.Command, S : StateMachine.State> S.toTransition(commands: Set<C>): Transition<S, C> =
 //    this to commands

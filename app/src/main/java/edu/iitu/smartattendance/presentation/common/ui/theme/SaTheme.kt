@@ -1,6 +1,8 @@
 package edu.iitu.smartattendance.presentation.common.ui.theme
 
 import android.app.Activity
+import android.view.WindowInsets
+import android.view.WindowInsetsController
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.tween
@@ -31,6 +33,7 @@ fun SaTheme(
     SideEffect {
         val window = (context as? Activity)?.window ?: return@SideEffect
         val insetsController = WindowInsetsControllerCompat(window, view)
+//        insetsController.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_BARS_BY_SWIPE
 
 //        insetsController.apply {
 //            isAppearanceLightStatusBars = true

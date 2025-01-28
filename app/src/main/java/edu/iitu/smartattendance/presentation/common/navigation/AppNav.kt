@@ -20,7 +20,7 @@ fun AppNav(
     SaNavHost(
 //        modifier = modifier.consumeWindowInsets(),
         navController = navController,
-        startDestination = AppDestination.Auth
+        startDestination = AppDestination.Home
     )
 }
 

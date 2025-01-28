@@ -1,19 +1,21 @@
 package edu.iitu.smartattendance
 
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
-import android.view.View
+import android.view.GestureDetector
+import android.view.MotionEvent
+import android.view.Window
+import android.view.WindowInsets
+import android.view.WindowInsetsController
 import android.view.WindowManager
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import dagger.hilt.android.AndroidEntryPoint
 import edu.iitu.smartattendance.presentation.common.navigation.AppNav
 import edu.iitu.smartattendance.presentation.common.ui.theme.SaTheme
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

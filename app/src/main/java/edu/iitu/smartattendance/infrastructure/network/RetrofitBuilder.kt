@@ -12,29 +12,30 @@ import java.util.concurrent.TimeUnit
 
 private const val DEFAULT_TIMEOUT_SECONDS = 10L
 
-internal fun createOkHttpClientBuilder(): OkHttpClient.Builder {
-    val client = OkHttpClient.Builder()
-        .connectTimeout(DEFAULT_TIMEOUT_SECONDS, TimeUnit.SECONDS)
-        .writeTimeout(DEFAULT_TIMEOUT_SECONDS, TimeUnit.SECONDS)
-        .readTimeout(DEFAULT_TIMEOUT_SECONDS, TimeUnit.SECONDS)
-        .connectionSpecs(Collections.singletonList(provideConnectionSpec()))
-//        .addInterceptor(LogInt)
+//internal fun createOkHttpClientBuilder(): OkHttpClient.Builder {
+//    val client = OkHttpClient.Builder()
+//        .connectTimeout(DEFAULT_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+//        .writeTimeout(DEFAULT_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+//        .readTimeout(DEFAULT_TIMEOUT_SECONDS, TimeUnit.SECONDS)
+//        .connectionSpecs(Collections.singletonList(provideConnectionSpec()))
+////        .addInterceptor(LogInt)
+////
+////    if (BuildConfig.DEBUG) {
+////        val logging = LogInterceptor().create()
+////        client.addInterceptor(logging)
+////    }
 //
-//    if (BuildConfig.DEBUG) {
-//        val logging = LogInterceptor().create()
-//        client.addInterceptor(logging)
-//    }
-
-    return client
-}
+//    return client
+//}
 
 internal fun createRetrofitBuilder(
-    okHttpClient: OkHttpClient, gson: Gson,
+//    okHttpClient: OkHttpClient,
+    gson: Gson,
     baseUrl: String
 ): Retrofit.Builder {
     return Retrofit.Builder()
         .baseUrl(baseUrl)
-        .client(okHttpClient)
+//        .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create(gson))
 }
 

@@ -9,7 +9,7 @@ sealed interface SaIconDefault {
         @Composable
         fun colors() = IconButtonDefaults.iconButtonColors(
             containerColor = SaColor.Gray100,
-            contentColor = SaColor.Gray700,
+            contentColor = SaColor.Primary300,
             disabledContainerColor = SaColor.Gray200,
             disabledContentColor = SaColor.Gray700
         )

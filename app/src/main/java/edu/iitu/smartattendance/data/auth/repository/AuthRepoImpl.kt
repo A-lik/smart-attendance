@@ -18,7 +18,7 @@ class AuthRepoImpl @Inject constructor(
         password: CharArray
     ): SaResult<Unit> {
         return safeApiCall {
-            authApi.loginWithCredentials(Credentials(login, password.toString()))
+            authApi.loginWithCredentials(Credentials(login, String(password)))
         }
     }
 

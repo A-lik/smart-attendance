@@ -23,7 +23,10 @@ class AuthExecutor @Inject constructor(
     override suspend fun execute(command: AuthCommand): AuthEvent? =
         when (command) {
 //            AuthCommand.NavigateToMain -> callbacks.navigateToHome().let { null }
-            is AuthCommand.InitiateEmailLogin -> loginEmail(command.email, command.password)
+            is AuthCommand.InitiateEmailLogin -> {
+//                callbacks.navigateToHome().let { null }
+                loginEmail(command.email, command.password)
+            }
         }
 
     private suspend fun loginEmail(

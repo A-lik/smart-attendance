@@ -7,12 +7,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import edu.iitu.smartattendance.data.auth.AuthApi
-import edu.iitu.smartattendance.infrastructure.network.createOkHttpClientBuilder
 import edu.iitu.smartattendance.infrastructure.network.createRetrofitBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.create
-import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
@@ -25,19 +22,21 @@ object NetworkModule {
         return GsonBuilder().setLenient().create()
     }
 
-    @Singleton
-    @Provides
-    fun provideMainOkHttpClient() : OkHttpClient {
-        return createOkHttpClientBuilder().build()
-    }
+//    @Singleton
+//    @Provides
+//    fun provideMainOkHttpClient() : OkHttpClient {
+//        return createOkHttpClientBuilder().build()
+//    }
 
     @Singleton
     @Provides
     fun provideMainRetrofit(
-        okHttpClient: OkHttpClient,
+//        okHttpClient: OkHttpClient,
         gson: Gson
     ) : Retrofit {
-        return createRetrofitBuilder(okHttpClient, gson, "http://192.168.1.4:8080").build()
+        return createRetrofitBuilder(
+//            okHttpClient,
+            gson, "http://192.168.1.4:8080/").build()
     }
 
     @Singleton

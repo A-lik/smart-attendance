@@ -1,7 +1,6 @@
 package edu.iitu.smartattendance.presentation.app_flow.main.home.view
 
 import dagger.hilt.android.lifecycle.HiltViewModel
-import edu.iitu.smartattendance.presentation.app_flow.auth.model.AuthExecutor
 import edu.iitu.smartattendance.presentation.app_flow.main.home.model.HomeCommand
 import edu.iitu.smartattendance.presentation.app_flow.main.home.model.HomeEvent
 import edu.iitu.smartattendance.presentation.app_flow.main.home.model.HomeExecutor
@@ -14,7 +13,7 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     homeExecutor: HomeExecutor
 ) : BaseStore<HomeState, HomeEvent, HomeCommand>(
-    config = Config(state = HomeState.LoadedHome),
+    config = Config(state = HomeState.LoadedClasses),
     reducer = HomeReducer,
     executor = homeExecutor
 ) {

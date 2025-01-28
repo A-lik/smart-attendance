@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -38,7 +36,7 @@ fun HomeScreen(
         ) {
             when (state) {
                 HomeState.LoadedDetails -> ClassDetailsScreen(dispatchMemoized)
-                HomeState.LoadedHome -> UpcomingClassesScreen(dispatchMemoized)
+                HomeState.LoadedClasses -> UpcomingClassesScreen(dispatchMemoized)
                 HomeState.Loading -> TODO()
             }
         }
