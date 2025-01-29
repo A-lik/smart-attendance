@@ -71,7 +71,7 @@ private fun ClassesSection(
         modifier = Modifier
             .fillMaxWidth()
             .padding(
-                bottom = systemBarPadding + SaPadding.large().calculateBottomPadding()
+                bottom = systemBarPadding + SaPadding.superLarge().calculateBottomPadding()
             ),
         contentPadding = PaddingValues(
             vertical = SaPadding.medium().calculateBottomPadding(),

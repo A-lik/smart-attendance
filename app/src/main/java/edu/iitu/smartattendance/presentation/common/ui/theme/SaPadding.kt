@@ -18,4 +18,5 @@ object SaPadding {
     fun small() = paddingValues(vertical = 16.dp)
     fun medium() = paddingValues(vertical = 24.dp)
     fun large() = paddingValues(vertical = 32.dp)
+    fun superLarge() = paddingValues(vertical = 48.dp)
 }

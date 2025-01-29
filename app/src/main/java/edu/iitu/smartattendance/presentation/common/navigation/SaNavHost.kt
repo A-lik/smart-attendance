@@ -11,6 +11,9 @@ import edu.iitu.smartattendance.presentation.app_flow.auth.view.AuthScreen
 import edu.iitu.smartattendance.presentation.app_flow.auth.view.AuthViewModel
 import edu.iitu.smartattendance.presentation.app_flow.main.home.view.HomeScreen
 import edu.iitu.smartattendance.presentation.app_flow.main.home.view.HomeViewModel
+import edu.iitu.smartattendance.presentation.app_flow.main.idk_yet.IdkYetScreen
+import edu.iitu.smartattendance.presentation.app_flow.main.notification.NotificationScreen
+import edu.iitu.smartattendance.presentation.app_flow.main.profile.ProfileScreen
 
 @Composable
 fun SaNavHost(
@@ -32,6 +35,15 @@ fun SaNavHost(
             val viewModel = hiltViewModel<HomeViewModel>()
             val state = viewModel.state.collectAsStateWithLifecycle().value
             HomeScreen(state = state, viewModel::dispatchEvent)
+        }
+        composable<AppDestination.Notifications> {
+            NotificationScreen()
+        }
+        composable<AppDestination.IdkYet> {
+            IdkYetScreen()
+        }
+        composable<AppDestination.Profile> {
+            ProfileScreen()
         }
     }
 }

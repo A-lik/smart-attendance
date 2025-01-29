@@ -1,6 +1,5 @@
 package edu.iitu.smartattendance.presentation.common.navigation
 
-import androidx.navigation.NavDestination
 import kotlinx.serialization.Serializable
 
 sealed interface AppDestination {
@@ -11,4 +10,12 @@ sealed interface AppDestination {
     @Serializable
     data object Home : AppDestination
 
+    @Serializable
+    data object Notifications : AppDestination
+
+    @Serializable
+    data object Profile : AppDestination
+
+    @Serializable
+    data object IdkYet : AppDestination
 }

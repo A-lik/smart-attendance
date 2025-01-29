@@ -1,5 +1,9 @@
 package edu.iitu.smartattendance.presentation.common.ui.component.appbar
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
@@ -18,9 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import edu.iitu.smartattendance.presentation.common.ui.component.appbar.enums.SaBottomNavBarIcon
+import edu.iitu.smartattendance.presentation.common.ui.component.appbar.enums.SaBottomNavBarElement
 import edu.iitu.smartattendance.presentation.common.ui.theme.SaColor
 import edu.iitu.smartattendance.presentation.common.ui.theme.SaPadding
 
@@ -28,15 +30,9 @@ import edu.iitu.smartattendance.presentation.common.ui.theme.SaPadding
 fun SaBottomBar(
     contentColor: Color = SaColor.LightGray,
 ) {
-//    val systemUiController = rememberSystemUiController()
-//    systemUiController.setSystemBarsColor(
-//        color = SaColor.Primary400,
-//        darkIcons = false
-//    )
 
     val navigationBarsPadding = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
-    var selectedElement by remember { mutableStateOf(SaBottomNavBarIcon.HOME) }
-
+    var selectedElement by remember { mutableStateOf(SaBottomNavBarElement.HOME) }
 
     Surface(
         modifier = Modifier
@@ -51,12 +47,12 @@ fun SaBottomBar(
                 .fillMaxWidth()
                 .padding(
                     bottom = navigationBarsPadding + SaPadding.mediumSmall().calculateBottomPadding(),
-                    top = SaPadding.small().calculateTopPadding()
+                    top = SaPadding.medium().calculateTopPadding()
                 ),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            SaBottomNavBarIcon.entries.forEach { element ->
+            SaBottomNavBarElement.entries.forEach { element ->
                 SaBottomBarElement(
                     element = element,
                     isSelected = selectedElement == element,
@@ -67,11 +63,15 @@ fun SaBottomBar(
     }
 }
 
-//@Composable
-//fun RenderSaBottomBar(state: AppConfig) = when (state) {
-//    is AppConfig.AuthConfig -> Unit
-//    is AppConfig.MainConfig -> SaBottomBar()
-//}
+@Composable
+fun AnimatedSaBottomBar(visible: Boolean) =
+    AnimatedVisibility(
+        visible = visible,
+        enter = fadeIn(animationSpec = tween(700)),
+        exit = fadeOut(animationSpec = tween(700))
+    ) {
+        SaBottomBar()
+    }
 
 @Composable
 @Preview(showBackground = true)
