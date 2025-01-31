@@ -8,7 +8,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import edu.iitu.smartattendance.data.auth.AuthApi
 import edu.iitu.smartattendance.infrastructure.network.createRetrofitBuilder
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
@@ -36,7 +35,7 @@ object NetworkModule {
     ) : Retrofit {
         return createRetrofitBuilder(
 //            okHttpClient,
-            gson, "http://192.168.1.4:8080/").build()
+            gson, "http://192.168.1.3:8080/").build()
     }
 
     @Singleton

@@ -1,11 +1,11 @@
 package edu.iitu.smartattendance.data.auth.repository
 
+import edu.iitu.smartattendance.data.auth.Articles
 import edu.iitu.smartattendance.data.auth.AuthApi
 import edu.iitu.smartattendance.data.auth.Credentials
 import edu.iitu.smartattendance.domain.auth.repo.AuthRepo
 import edu.iitu.smartattendance.domain.error.SaResult
 import edu.iitu.smartattendance.infrastructure.network.safeApiCall
-import edu.iitu.smartattendance.infrastructure.utils.toRight
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -20,6 +20,10 @@ class AuthRepoImpl @Inject constructor(
         return safeApiCall {
             authApi.loginWithCredentials(Credentials(login, String(password)))
         }
+    }
+
+    override suspend fun getArticles(): SaResult<Articles> {
+        return safeApiCall { authApi.getArticles() }
     }
 
 }
